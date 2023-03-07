@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import styled from 'styled-components';
-import bootstrap from 'bootstrap';
+// import bootstrap from 'bootstrap';
 
 const Wrapper = styled.section`
   padding: 2em;
   background: #7bd3ffdb;
   border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 5px;
 `;
 
 const LinkNav = styled.a`
@@ -45,3 +46,6 @@ export const Header = () => {
     </Wrapper>
   );
 };
+
+
+export default Header;
