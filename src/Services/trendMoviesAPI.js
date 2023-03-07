@@ -1,16 +1,14 @@
 import axios from 'axios';
 
-export async function  fetchMovies () {
+export async function  trendMoviesAPI () {
     const params = new URLSearchParams ({
         api_key: 'a0869b2b27b58a659702b4629a364211',
     })
 
-        const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/week?${params}`)
+        const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?${params}`)
         // console.log(response);
-        console.log(response.data);
-        console.log(response.data.results);
-
-
+        // console.log(response.data);
+        // console.log(response.data.results);
         return response.data; 
 }
 
