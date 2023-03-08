@@ -21,7 +21,7 @@ const Wrapper = styled.section`
 //   text-decoration: none;
 // `;
 
-export const Header = () => {
+const Header = () => {
   return (
     <Wrapper>
       {/* <LinkNav href="/">Home</LinkNav>
@@ -29,17 +29,17 @@ export const Header = () => {
 
       <ul className="nav nav-pills">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <a className="nav-link active" aria-current="page" href="/">
             Home
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
+          <a className="nav-link" href="/movies">
             Movies
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link disabled">Disabled</a>
+          <a className="nav-link disabled" href='/test'>Disabled</a>
         </li>
       </ul>
     </Wrapper>

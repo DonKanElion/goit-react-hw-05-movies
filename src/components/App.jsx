@@ -1,5 +1,6 @@
-import { Header } from './Header/Header';
+import Header from './Header/Header';
 import Home from './Home/Home';
+import PageMovies from './PageMovies/PageMovies';
 import styled from 'styled-components';
 
 const Wrapper = styled.section`
@@ -12,7 +13,8 @@ export const App = () => {
     <>
       <Header></Header>
       <Wrapper>
-        <Home></Home>
+        {/* <Home></Home> */}
+        <PageMovies></PageMovies>
       </Wrapper>
     </>
   );
