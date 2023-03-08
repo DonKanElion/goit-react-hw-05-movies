@@ -17,7 +17,7 @@ export const Search = styled.div`
 
 export const SearchTerm = styled.input`
   width: 100%;
-  border: 3px solid #00b4cc;
+  border: 3px solid var(--bs-cyan);
   border-right: none;
   padding: 8px;
   height: 28px;
@@ -34,13 +34,14 @@ export const SearchTerm = styled.input`
 export const SearchBtn = styled.button`
   width: 60px;
   height: 28px;
-  border: 1px solid #00b4cc;
-  background: #00b4cc;
+  border: 1px solid var(--bs-cyan);
+  background: var(--bs-cyan);
   text-align: center;
   color: black;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 14px;
+
   &:hover,
     &:focus {
         color: white;

@@ -1,21 +1,18 @@
-import Header from './Header/Header';
-import Home from './Home/Home';
-import PageMovies from './PageMovies/PageMovies';
-import styled from 'styled-components';
+import { Routes, Route } from 'react-router-dom';
 
-const Wrapper = styled.section`
-  padding: 0 20px 40px;
-  background: #ffffff;
-`;
+import SharedLayout from './SharedLayout/SharedLayout';
+import Home from '../pages/Home';
+import Movies from '../pages/Movies';
+import NotFound from 'pages/NotFound';
 
 export const App = () => {
   return (
-    <>
-      <Header></Header>
-      <Wrapper>
-        {/* <Home></Home> */}
-        <PageMovies></PageMovies>
-      </Wrapper>
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/search/search-movies" element={<Movies />}></Route>
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 };

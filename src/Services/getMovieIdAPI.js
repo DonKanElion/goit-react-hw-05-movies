@@ -21,9 +21,6 @@ export async function  getMovieIdAPI ({ id }) {
 
 
 
-
-
-
 // https://api.themoviedb.org/3/movie/550?api_key=a0869b2b27b58a659702b4629a364211
 
 

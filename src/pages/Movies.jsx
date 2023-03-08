@@ -1,6 +1,6 @@
 import SearchForm from 'components/SearchForm/SearchForm';
 
-const PageMovies = () => {
+const Movies = () => {
 
 
     const handleSubmit = () => {
@@ -14,4 +14,4 @@ const PageMovies = () => {
   );
 };
 
-export default PageMovies;
+export default Movies;
