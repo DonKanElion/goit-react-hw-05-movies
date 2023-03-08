@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+
+import Button from 'components/Button/Button';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
 
@@ -7,6 +9,7 @@ const MovieDetails = () => {
 
   return (
     <>
+      <Button></Button>
       <section>
         <div className="flex_wrapper">
           <img src="" alt="" />

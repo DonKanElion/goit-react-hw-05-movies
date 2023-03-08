@@ -3,6 +3,7 @@ import styled from 'styled-components';
 /*Resize the wrap to see the search bar change!*/
 export const Wrap = styled.div`
   width: 50%;
+  padding: 10px 0;
 `;
 
 export const Search = styled.div`
