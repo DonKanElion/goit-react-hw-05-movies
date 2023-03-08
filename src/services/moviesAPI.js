@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-export async function  trendMoviesAPI () {
+
+// getMovies
+// getMoviesById
+
+export async function  getMovies () {
     const params = new URLSearchParams ({
         api_key: 'a0869b2b27b58a659702b4629a364211',
     })
@@ -12,6 +16,25 @@ export async function  trendMoviesAPI () {
         return response.data; 
 }
 
+
+// export async function  getMoviesById ({ movieId }) {
+//     const params = new URLSearchParams ({
+//         api_key: 'a0869b2b27b58a659702b4629a364211',
+//     })
+
+//         const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?${params}`)
+//         // console.log(response);
+//         console.log('getMovieIdAPI: ', response.data);
+//         // console.log(response.data.results);
+//         return response.data; 
+// };
+
+
+
+// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>
+
+
+// https://api.themoviedb.org/3/movie/22462/credits?api_key=a0869b2b27b58a659702b4629a364211
 
 
 // https://api.themoviedb.org/3/trending/movie/week?api_key=<<api_key>>

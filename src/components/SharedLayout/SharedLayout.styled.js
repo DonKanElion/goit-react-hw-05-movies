@@ -15,6 +15,7 @@ export const Header = styled.header`
   padding: 8px 0;
   margin-bottom: 16px;
   border-bottom: 1px solid black;
+  /* background-color: var(--bs-info); */
 
   > nav {
     display: flex;
@@ -31,6 +32,6 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: orangered;
+    background-color: var(--bs-primary);
   }
 `;

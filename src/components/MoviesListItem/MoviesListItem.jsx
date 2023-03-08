@@ -1,3 +1,7 @@
+// import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -7,7 +11,7 @@ const Item = styled.li`
   font-size: 12px;
   font-weight: 400;
 `;
-const MoviesListItem = ({ title }) => {
+const MoviesListItem = ({ title, id}) => {
   const handleClick = evt => {
     evt.preventDefault();
     console.log('Hello Tik Tik');
@@ -16,7 +20,7 @@ const MoviesListItem = ({ title }) => {
 
   return (
     <Item onClick={handleClick}>
-      <a href="/">{title}</a>
+      <NavLink to='/movies/:movieId' >{title}</NavLink>
     </Item>
   );
 };

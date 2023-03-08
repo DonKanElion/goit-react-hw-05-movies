@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import { trendMoviesAPI } from 'services/trendMoviesAPI';
+import { getMovies } from 'services/moviesAPI';
 // import testData from '../../../src/testData.json';
 import MoviesList from 'components/MoviesList/MoviesList';
 import Loader from 'components/Loader/Loader';
@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    trendMoviesAPI()
+    getMovies()
       .then(({ results }) => {
         if (results === 0) {
           return notifyWarning(
