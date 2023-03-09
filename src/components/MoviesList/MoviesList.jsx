@@ -5,9 +5,13 @@ import MoviesListItem from 'components/MoviesListItem/MoviesListItem';
 const MoviesList = ({ movies }) => {
   return (
     <ul>
-      {movies.map(({ id, original_title, release_date, overview }) => {
+      {movies.map( movie => {
+
+        // const { id, original_title, release_date, overview } = movie;
+        const { id } = movie;
+
         return (
-          <MoviesListItem key={id} title={original_title}></MoviesListItem>
+          <MoviesListItem key={id} props={movie} ></MoviesListItem>
         );
       })}
     </ul>

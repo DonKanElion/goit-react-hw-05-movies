@@ -1,32 +1,27 @@
-// import { Link } from 'react-router-dom';
-import { NavLink } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-// import { getMovieIdAPI } from 'Services/getMovieIdAPI';
 
 const Item = styled.li`
   font-size: 12px;
   font-weight: 400;
 `;
-const MoviesListItem = ({ title, id}) => {
-  const handleClick = evt => {
-    evt.preventDefault();
-    console.log('Hello Tik Tik');
-    // getMovieIdAPI(id);
-  };
+
+const MoviesListItem = movie => {
+  // const { id, original_title, release_date, overview } = movie.props;
+
+  const { id, original_title } = movie.props;
 
   return (
-    <Item onClick={handleClick}>
-      <NavLink to='/movies/:movieId' >{title}</NavLink>
+    <Item>
+      <Link to={`movies/:${id}`}>{original_title}</Link>
     </Item>
   );
 };
 
 MoviesListItem.propTypes = {
-  title: PropTypes.string.isRequired,
+  movie: PropTypes.func.isRequired,
 };
 
 export default MoviesListItem;

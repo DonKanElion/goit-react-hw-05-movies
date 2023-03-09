@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { getMovies } from 'services/moviesAPI';
-// import testData from '../../../src/testData.json';
 import MoviesList from 'components/MoviesList/MoviesList';
 import Loader from 'components/Loader/Loader';
 
@@ -21,18 +21,14 @@ const Home = () => {
             'Сталася помилка'
           );
         }
-        // console.log('CONTROL results: ', results);
-
-        setTrendMovies([...results]);
-        // console.log('CONTROL STATE - trendMovies: ', trendMovies); ???
-        return;
+        
+        return setTrendMovies([...results]);
       })
       .catch(error => {
         notifyError(error);
         return console.log(error);
       })
       .finally(() => {
-        // console.log('CONTROL STATE - trendMovies: ', trendMovies); ???
         setIsLoading(false);
       });
   }, []);
