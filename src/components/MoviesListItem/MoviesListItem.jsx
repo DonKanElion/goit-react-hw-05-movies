@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Item = styled.li`
@@ -20,8 +20,8 @@ const MoviesListItem = movie => {
   );
 };
 
-MoviesListItem.propTypes = {
-  movie: PropTypes.func.isRequired,
-};
+// MoviesListItem.propTypes = {
+//   movie: PropTypes.func.isRequired,
+// };
 
 export default MoviesListItem;

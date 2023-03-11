@@ -1,51 +1,33 @@
 import axios from 'axios';
 
-
+const API_KEY = 'a0869b2b27b58a659702b4629a364211';
+const BASE_URL = 'https://api.themoviedb.org/3/';
+axios.defaults.baseURL = BASE_URL;
 // getMovies
 // getMoviesById
 
-export async function  getMovies () {
-    const params = new URLSearchParams ({
-        api_key: 'a0869b2b27b58a659702b4629a364211',
-    })
+export async function getMovies() {
+  const { data } = await axios.get(`/trending/movie/week?api_key=${API_KEY}`);
+  return data;
+}
 
-        const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?${params}`)
-        // console.log(response);
-        // console.log(response.data);
-        // console.log(response.data.results);
-        return response.data; 
+export async function getMoviesById(movieId) {
+//   const { data } = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
+const resp = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
+
+  //   console.log('getMoviesById DATA: ', data);
+//   return data;
+return resp.data;
+
 }
 
 
-// export async function  getMoviesById ({ movieId }) {
-//     const params = new URLSearchParams ({
-//         api_key: 'a0869b2b27b58a659702b4629a364211',
-//     })
-
-//         const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?${params}`)
-//         // console.log(response);
-//         console.log('getMovieIdAPI: ', response.data);
-//         // console.log(response.data.results);
-//         return response.data; 
-// };
-
-
-
-// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>
-
-
-// https://api.themoviedb.org/3/movie/22462/credits?api_key=a0869b2b27b58a659702b4629a364211
-
-
-// https://api.themoviedb.org/3/trending/movie/week?api_key=<<api_key>>
-
-
-// https://api.themoviedb.org/3/movie/550?api_key=a0869b2b27b58a659702b4629a364211
-
-
-
-// /trending/get-trending список найпопулярніших фільмів на сьогодні для створення колекції на головній сторінці.
-// /search/search-movies пошук фільму за ключовим словом на сторінці фільмів.
-// /movies/get-movie-details запит повної інформації про фільм для сторінки кінофільму.
-// /movies/get-movie-credits запит інформації про акторський склад для сторінки кінофільму.
-// /movies/get-movie-reviews запит оглядів для сторінки кінофільму.
+// export async function getMoviesReviews(movieId) {
+//     //   const { data } = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
+//     const resp = await axios.get(`/movie/${movieId}/reviews?api_key=${API_KEY}`);
+    
+//       //   console.log('getMoviesById DATA: ', data);
+//     //   return data;
+//     return resp;
+    
+//     }

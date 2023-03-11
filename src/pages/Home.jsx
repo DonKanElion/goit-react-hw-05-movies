@@ -15,13 +15,13 @@ const Home = () => {
 
     getMovies()
       .then(({ results }) => {
+
         if (results === 0) {
           return notifyWarning(
             // 'Sorry, nothing was found for your request, try something else.'
             'Сталася помилка'
           );
         }
-        
         return setTrendMovies([...results]);
       })
       .catch(error => {
