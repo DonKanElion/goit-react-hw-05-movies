@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { getMovies } from 'services/moviesAPI';

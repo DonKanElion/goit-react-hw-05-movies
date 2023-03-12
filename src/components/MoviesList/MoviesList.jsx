@@ -6,7 +6,6 @@ const MoviesList = ({ movies }) => {
     <ul>
       {movies.map( movie => {
         const { id } = movie;
-
         return (
           <MoviesListItem key={id} props={movie} ></MoviesListItem>
         );

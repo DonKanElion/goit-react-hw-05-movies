@@ -14,6 +14,7 @@ const MoviesListItem = movie => {
   return (
     <Item>
       <Link to={`movies/:${id}`}>{original_title}</Link>
+      {/* <Link to={`:${id}`}>{original_title}</Link> */}
     </Item>
   );
 };
