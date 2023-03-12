@@ -1,8 +1,11 @@
-
+import { SectionDetails } from 'pages/GlobalStyles.styled';
 
 const Cast = () => {
-
-    return  <h3> Cast  інформація про акторів</h3>
-}
+  return (
+    <SectionDetails>
+      <h3> Cast інформація про акторів</h3>
+    </SectionDetails>
+  );
+};
 
 export default Cast;

@@ -1,5 +1,6 @@
 import { NavLink, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { FlexWrapper, BoxImg, Img, SectionDetails } from './GlobalStyles.styled';
 
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import notifyError from './Home';
@@ -11,7 +12,6 @@ import Loader from 'components/Loader/Loader';
 import { getMoviesById } from 'services/moviesAPI';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
-// https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg
 
 const MovieDetails = () => {
   const [details, setDetails] = useState([]);
@@ -26,7 +26,7 @@ const MovieDetails = () => {
     release_date,
     genresTitles,
     overview,
-    popularity,
+    vote_average,
   } = details;
 
   useEffect(() => {
@@ -66,28 +66,29 @@ const MovieDetails = () => {
             <Loader />
           ) : (
             <>
-              <Button></Button>
-              <section>
-                <div className="flex_wrapper">
-                  <img
+              <SectionDetails>
+                <Button></Button>
+                <FlexWrapper>
+                <BoxImg>
+                <Img
                     src={`${BASE_IMG_URL}w300${details?.poster_path}`}
                     alt=""
-                  />
+                  ></Img>
+                </BoxImg>
                   <div>
                     <div>
                       <h2>
                         {original_title || title} ({release_date?.slice(0, 4)})
                       </h2>
                     </div>
-                    <p>User Score: {popularity.toFixed(0)} %</p>
+                    <p>Vote average: {vote_average?.toFixed(2)} %</p>
                     <h3>Overview</h3>
                     <p>{overview}</p>
                     <h3>Genres</h3>
                     <p>{genresTitles}</p>
-                    <p>Жанри, хуяндри, ніяк не можу мапнути масив...</p>
                   </div>
-                </div>
-              </section>
+                </FlexWrapper>
+              </SectionDetails>
 
               <section>
                 <h2>Additional information</h2>

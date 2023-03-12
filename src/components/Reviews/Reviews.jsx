@@ -1,7 +1,11 @@
+import { SectionDetails } from 'pages/GlobalStyles.styled';
 
 const Reviews = () => {
-
-    return <h3>Reviews  інфа про огляд</h3>
-}
+  return (
+    <SectionDetails>
+      <h3>Reviews інфа про огляд</h3>
+    </SectionDetails>
+  );
+};
 
 export default Reviews;
