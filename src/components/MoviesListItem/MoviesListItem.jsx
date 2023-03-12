@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Item = styled.li`
@@ -9,8 +9,6 @@ const Item = styled.li`
 `;
 
 const MoviesListItem = movie => {
-  // const { id, original_title, release_date, overview } = movie.props;
-
   const { id, original_title } = movie.props;
 
   return (
@@ -20,8 +18,8 @@ const MoviesListItem = movie => {
   );
 };
 
-// MoviesListItem.propTypes = {
-//   movie: PropTypes.func.isRequired,
-// };
+MoviesListItem.propTypes = {
+  movie: PropTypes.array.isRequired,
+};
 
 export default MoviesListItem;

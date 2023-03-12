@@ -14,7 +14,13 @@ export const SectionDetails = styled.section`
 export const BoxImg = styled.div`
 width: 344px;
 height: 455px;
-`
+margin-right: 10px;
+`;
+
+export const Details = styled.div`
+padding-top: 26px;
+`;
+
 export const Img = styled.img`
   width: 284px;
   margin: 12px 20px 16px;

@@ -1,22 +1,35 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FlexWrapper, BoxImg, Img, SectionDetails } from './GlobalStyles.styled';
+import defaultPoster from '../default_poster.png';
+
+import {
+  FlexWrapper,
+  BoxImg,
+  Img,
+  SectionDetails,
+  Details,
+} from './GlobalStyles.styled';
 
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // import notifyError from './Home';
 
 import Button from 'components/Button/Button';
-import Cast from 'components/Cast/Cast';
-import Reviews from 'components/Reviews/Reviews';
 import Loader from 'components/Loader/Loader';
 import { getMoviesById } from 'services/moviesAPI';
 
 const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
 
+function getGenresNames(array) {
+  return array
+    .map(genre => {
+      return genre.name;
+    })
+    .join(' ');
+}
+
 const MovieDetails = () => {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const { movieId } = useParams();
   let id = movieId.slice(1);
 
@@ -29,21 +42,14 @@ const MovieDetails = () => {
     vote_average,
   } = details;
 
+  // console.log(defaultPoster);
+
   useEffect(() => {
     setIsLoading(true);
-
-    function getGenresNames(array) {
-      return array
-        .map(genre => {
-          return genre.name;
-        })
-        .join(' ');
-    }
 
     getMoviesById(id)
       .then(res => {
         if (res === null) {
-          console.log('ПУСТИЙ МАСИВ!!!!!');
           return setDetails(null);
         }
         const genresTitles = getGenresNames(res.genres);
@@ -56,7 +62,7 @@ const MovieDetails = () => {
       .finally(() => setIsLoading(false));
   }, [movieId]);
 
-  console.log('Last TEST details: ', details);
+  const checkImg = details.poster_path ? (`${BASE_IMG_URL}w300${details?.poster_path}`) : (defaultPoster);
 
   return (
     <>
@@ -69,13 +75,13 @@ const MovieDetails = () => {
               <SectionDetails>
                 <Button></Button>
                 <FlexWrapper>
-                <BoxImg>
-                <Img
-                    src={`${BASE_IMG_URL}w300${details?.poster_path}`}
-                    alt=""
-                  ></Img>
-                </BoxImg>
-                  <div>
+                  <BoxImg>
+                    <Img
+                      src={checkImg}
+                      alt={original_title || title}
+                    ></Img>
+                  </BoxImg>
+                  <Details>
                     <div>
                       <h2>
                         {original_title || title} ({release_date?.slice(0, 4)})
@@ -86,11 +92,11 @@ const MovieDetails = () => {
                     <p>{overview}</p>
                     <h3>Genres</h3>
                     <p>{genresTitles}</p>
-                  </div>
+                  </Details>
                 </FlexWrapper>
               </SectionDetails>
 
-              <section>
+              <SectionDetails>
                 <h2>Additional information</h2>
                 <ul>
                   <li>
@@ -100,9 +106,9 @@ const MovieDetails = () => {
                     <NavLink to="reviews">Reviews</NavLink>
                   </li>
                 </ul>
-                <Cast>test Cast</Cast>
-                <Reviews>test Reviews</Reviews>
-              </section>
+              </SectionDetails>
+
+              <Outlet />
             </>
           )}
         </>

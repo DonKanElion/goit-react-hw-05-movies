@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
-
 import MoviesListItem from 'components/MoviesListItem/MoviesListItem';
 
 const MoviesList = ({ movies }) => {
   return (
     <ul>
       {movies.map( movie => {
-
-        // const { id, original_title, release_date, overview } = movie;
         const { id } = movie;
 
         return (
