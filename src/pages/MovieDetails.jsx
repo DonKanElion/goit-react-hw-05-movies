@@ -1,7 +1,6 @@
-import { NavLink, useParams, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { NavLink, useParams, Outlet } from 'react-router-dom';
 import defaultPoster from '../default_poster.png';
-
 import {
   FlexWrapper,
   BoxImg,
