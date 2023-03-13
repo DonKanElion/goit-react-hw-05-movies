@@ -31,17 +31,13 @@ const SearchForm = ({ onSubmit }) => {
 
   useEffect(() => {
     if (!query) {
-      console.log('First render');
       return;
     }
 
     setIsLoading(true);
 
-    console.log('Next render');
-
     getMovieSearch(query)
       .then(resp => {
-        console.log('Response: ', resp);
         const { results } = resp;
         setSearchMovies([...results]);
       })

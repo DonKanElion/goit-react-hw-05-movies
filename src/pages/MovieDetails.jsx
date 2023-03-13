@@ -42,8 +42,6 @@ const MovieDetails = () => {
     vote_average,
   } = details;
 
-  // console.log(defaultPoster);
-
   useEffect(() => {
     setIsLoading(true);
 

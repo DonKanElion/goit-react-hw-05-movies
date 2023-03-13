@@ -13,14 +13,13 @@ const MoviesListItem = movie => {
 
   return (
     <Item>
-      <Link to={`movies/:${id}`}>{original_title}</Link>
-      {/* <Link to={`:${id}`}>{original_title}</Link> */}
+      <Link to={`/movies/:${id}`}>{original_title}</Link>
     </Item>
   );
 };
 
 MoviesListItem.propTypes = {
-  movie: PropTypes.array.isRequired,
+  movie: PropTypes.object.isRequired,
 };
 
 export default MoviesListItem;

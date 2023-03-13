@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <>
-      <h3>Trending today</h3>
+      <h3>Trending today:</h3>
       {isLoading ? (<Loader/>) : (<MoviesList movies={trendMovies}/>)}
     </>
   );

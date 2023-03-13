@@ -20,8 +20,6 @@ const Reviews = () => {
       });
   }, [id]);
 
-  console.log(reviews);
-
   return (
     <SectionDetails>
       <h3>Reviews:</h3>

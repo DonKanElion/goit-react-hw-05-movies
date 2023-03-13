@@ -14,10 +14,7 @@ const Cast = () => {
   useEffect(() => {
     getMoviesCast(id)
       .then(res => {
-        console.log(res);
-
-        setCast([...res]);
-        console.log('Cast: ', cast);
+        return setCast([...res]);
       })
       .catch(error => {
         console.log('ERROR: ', error);
