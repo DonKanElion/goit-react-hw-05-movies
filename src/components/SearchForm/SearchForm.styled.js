@@ -6,7 +6,7 @@ export const Wrap = styled.div`
   padding: 10px 0;
 `;
 
-export const Search = styled.div`
+export const Form = styled.form`
   width: 100%;
   position: relative;
   display: flex;

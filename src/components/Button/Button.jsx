@@ -1,8 +1,8 @@
 import { NavButton } from "./Button.styled";
 
-const Button = () => {
+const Button = ({ to }) => {
 
-    return <NavButton>← Go back</NavButton>
+    return <NavButton to={to}>← Go back</NavButton>
 }
 
 export default Button;

@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const NavButton = styled(NavLink)`
+export const NavButton = styled(Link)`
     /* width: 100px; */
     padding: 4px 8px;
     margin-bottom: 10px;

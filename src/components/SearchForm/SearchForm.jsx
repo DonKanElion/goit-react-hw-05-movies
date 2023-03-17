@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
-import { Wrap, Search, SearchTerm, SearchBtn } from './SearchForm.styled';
+import { Wrap, Form, SearchTerm, SearchBtn } from './SearchForm.styled';
 import { getMovieSearch } from 'services/moviesAPI';
 import MoviesList from 'components/MoviesList/MoviesList';
 import Loader from 'components/Loader/Loader';
@@ -26,7 +26,9 @@ const SearchForm = ({ onSubmit }) => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log('Click = HandleSubmit');
+    const form = evt.currentTarget
+
+    console.log('Click = HandleSubmit: ', query);
 
     if (!query.trim()) {
       alert('Enter correct title');
@@ -34,6 +36,7 @@ const SearchForm = ({ onSubmit }) => {
     }
     setMovie(query);
     updateQueryString(query);
+    form.reset();
     return setQuery('');
   };
 
@@ -69,19 +72,21 @@ const SearchForm = ({ onSubmit }) => {
   return (
     <>
       <Wrap>
-        <Search>
+        <Form onSubmit={handleSubmit}>
           <SearchTerm
             type="text"
+            name='inputQuery'
             onChange={handleChange}
             autocomplete="off"
             // autofocus
             placeholder="Search movies"
           ></SearchTerm>
 
-          <SearchBtn type="submit" onClick={handleSubmit}>
+          {/* <SearchBtn type="submit" onClick={handleSubmit}> */}
+          <SearchBtn type="submit">
             <p>Search</p>
           </SearchBtn>
-        </Search>
+        </Form>
       </Wrap>
 
       {isLoading ? <Loader /> : <MoviesList movies={searchMovies} />}

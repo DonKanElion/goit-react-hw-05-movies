@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useParams, Outlet } from 'react-router-dom';
+import { NavLink, useParams, Outlet, useLocation } from 'react-router-dom';
 import defaultPoster from '../default_poster.png';
 import {
   FlexWrapper,
@@ -29,6 +29,10 @@ function getGenresNames(array) {
 const MovieDetails = () => {
   const [details, setDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
+
   const { movieId } = useParams();
   let id = movieId.slice(1);
 
@@ -59,7 +63,9 @@ const MovieDetails = () => {
       .finally(() => setIsLoading(false));
   }, [movieId]);
 
-  const checkImg = details.poster_path ? (`${BASE_IMG_URL}w300${details?.poster_path}`) : (defaultPoster);
+  const checkImg = details.poster_path
+    ? `${BASE_IMG_URL}w300${details?.poster_path}`
+    : defaultPoster;
 
   return (
     <>
@@ -70,13 +76,10 @@ const MovieDetails = () => {
           ) : (
             <>
               <SectionDetails>
-                <Button></Button>
+                <Button to={backLinkHref}></Button>
                 <FlexWrapper>
                   <BoxImg>
-                    <Img
-                      src={checkImg}
-                      alt={original_title || title}
-                    ></Img>
+                    <Img src={checkImg} alt={original_title || title}></Img>
                   </BoxImg>
                   <Details>
                     <div>

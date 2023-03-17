@@ -7,7 +7,8 @@ const MoviesList = ({ movies }) => {
       {movies.map( movie => {
         const { id } = movie;
         return (
-          <MoviesListItem key={id} props={movie} ></MoviesListItem>
+          <MoviesListItem key={id} props={movie} >
+          </MoviesListItem>
         );
       })}
     </ul>
