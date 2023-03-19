@@ -21,14 +21,11 @@ const SearchForm = ({ onSubmit }) => {
   const handleChange = evt => {
     const { value } = evt.target;
     setQuery(value);
-    console.log('query: ', query);
   };
 
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.currentTarget
-
-    console.log('Click = HandleSubmit: ', query);
 
     if (!query.trim()) {
       alert('Enter correct title');
@@ -42,15 +39,12 @@ const SearchForm = ({ onSubmit }) => {
 
   useEffect(() => {
     if (searchParams.get('searchQuery')) {
-      console.log('Забрали значення з URL');
       return setMovie(searchParams.get('searchQuery'));
     }
-    console.log('В URL пусто');
   }, []);
 
   useEffect(() => {
     if (!movie) {
-      console.log('Нульовий рендер');
       return;
     }
 

@@ -61,7 +61,7 @@ const MovieDetails = () => {
         return console.log(error);
       })
       .finally(() => setIsLoading(false));
-  }, [movieId]);
+  }, [id]);
 
   const checkImg = details.poster_path
     ? `${BASE_IMG_URL}w300${details?.poster_path}`
