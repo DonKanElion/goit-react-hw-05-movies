@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import Home from '../pages/Home';
@@ -11,19 +11,21 @@ import NotFound from 'pages/NotFound';
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path="movies" element={<Movies />}>
-          <Route index element={<SearchForm />}></Route>
-          <Route path=":movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />}></Route>
-            <Route path="reviews" element={<Reviews />}></Route>
+    <BrowserRouter basename="/goit-react-hw-05-movies">
+      <Routes>
+        <Route path="" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />}>
+            <Route index element={<SearchForm />}></Route>
+            <Route path=":movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />}></Route>
+              <Route path="reviews" element={<Reviews />}></Route>
+            </Route>
           </Route>
-        </Route>
 
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
