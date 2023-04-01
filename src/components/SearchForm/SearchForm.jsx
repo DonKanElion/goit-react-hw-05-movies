@@ -28,8 +28,7 @@ const SearchForm = ({ onSubmit }) => {
     const form = evt.currentTarget
 
     if (!query.trim()) {
-      alert('Enter correct title');
-      return;
+      return alert('Enter correct title');
     }
     setMovie(query);
     updateQueryString(query);
