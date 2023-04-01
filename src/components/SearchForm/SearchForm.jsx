@@ -41,7 +41,7 @@ const SearchForm = ({ onSubmit }) => {
     if (searchParams.get('searchQuery')) {
       return setMovie(searchParams.get('searchQuery'));
     }
-  }, []);
+  }, [searchParams]);
 
   useEffect(() => {
     if (!movie) {
