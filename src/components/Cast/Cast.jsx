@@ -32,7 +32,7 @@ const Cast = () => {
   return (
     <SectionDetails>
       <h3> Cast</h3>
-      {isLoading ? (
+      {!isLoading ? (
         cast.length === 0 ? (
           <p>We don’t have any cast for this movie.</p>
         ) : (
