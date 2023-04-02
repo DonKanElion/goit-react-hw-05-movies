@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 import { Wrap, Form, SearchTerm, SearchBtn } from './SearchForm.styled';
 import { getMovieSearch } from 'services/moviesAPI';
@@ -28,7 +30,7 @@ const SearchForm = ({ onSubmit }) => {
     const form = evt.currentTarget
 
     if (!query.trim()) {
-      return alert('Enter correct title');
+      return Notify.warning('Enter correct title.');
     }
     setMovie(query);
     updateQueryString(query);
@@ -38,6 +40,7 @@ const SearchForm = ({ onSubmit }) => {
 
   useEffect(() => {
     if (searchParams.get('searchQuery')) {
+      console.log('Перший рендер з локал сторіджа!')
       return setMovie(searchParams.get('searchQuery'));
     }
   }, [searchParams]);
@@ -52,6 +55,9 @@ const SearchForm = ({ onSubmit }) => {
     getMovieSearch(movie)
       .then(resp => {
         const { results } = resp;
+        if(results < 1){
+          return Notify.warning('Enter correct title.');
+        }
         setSearchMovies([...results]);
       })
       .catch(error => {
