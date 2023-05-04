@@ -9,9 +9,6 @@ import {
   Details,
 } from './GlobalStyles.styled';
 
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import notifyError from './Home';
-
 import Button from 'components/Button/Button';
 import Loader from 'components/Loader/Loader';
 import { getMoviesById } from 'services/moviesAPI';
