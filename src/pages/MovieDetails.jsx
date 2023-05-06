@@ -73,7 +73,9 @@ const MovieDetails = () => {
           ) : (
             <>
               <SectionDetails>
-                <Button to={backLinkHref}></Button>
+                {/* <Button to={backLinkHref} state={{ from: location}}></Button> */}
+                <Button to={backLinkHref} ></Button>
+
                 <FlexWrapper>
                   <BoxImg>
                     <Img src={checkImg} alt={original_title || title}></Img>
@@ -97,10 +99,10 @@ const MovieDetails = () => {
                 <h2>Additional information</h2>
                 <ul>
                   <li>
-                    <NavLink to="cast">Cast</NavLink>
+                    <NavLink to="cast" state={{ from: location.state?.from }}>Cast</NavLink>
                   </li>
                   <li>
-                    <NavLink to="reviews">Reviews</NavLink>
+                    <NavLink to="reviews" state={{ from: location.state?.from }}>Reviews</NavLink>
                   </li>
                 </ul>
               </SectionDetails>
