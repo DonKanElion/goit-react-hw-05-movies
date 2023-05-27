@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
 import { Wrap, Form, SearchTerm, SearchBtn } from './SearchForm.styled';
 import { getMovieSearch } from 'services/moviesAPI';
 import MoviesList from 'components/MoviesList/MoviesList';
@@ -40,7 +39,6 @@ const SearchForm = ({ onSubmit }) => {
 
   useEffect(() => {
     if (searchParams.get('searchQuery')) {
-      console.log('Перший рендер з локал сторіджа!')
       return setMovie(searchParams.get('searchQuery'));
     }
   }, [searchParams]);

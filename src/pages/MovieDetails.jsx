@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { NavLink, useParams, Outlet, useLocation } from 'react-router-dom';
 import defaultPoster from '../default_poster.png';
 import {
@@ -74,7 +74,7 @@ const MovieDetails = () => {
             <>
               <SectionDetails>
                 {/* <Button to={backLinkHref} state={{ from: location}}></Button> */}
-                <Button to={backLinkHref} ></Button>
+                <Button to={backLinkHref}></Button>
 
                 <FlexWrapper>
                   <BoxImg>
@@ -99,15 +99,24 @@ const MovieDetails = () => {
                 <h2>Additional information</h2>
                 <ul>
                   <li>
-                    <NavLink to="cast" state={{ from: location.state?.from }}>Cast</NavLink>
+                    <NavLink to="cast" state={{ from: location.state?.from }}>
+                      Cast
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="reviews" state={{ from: location.state?.from }}>Reviews</NavLink>
+                    <NavLink
+                      to="reviews"
+                      state={{ from: location.state?.from }}
+                    >
+                      Reviews
+                    </NavLink>
                   </li>
                 </ul>
               </SectionDetails>
 
-              <Outlet />
+              <Suspense fallback={<Loader />}>
+                <Outlet />
+              </Suspense>
             </>
           )}
         </>

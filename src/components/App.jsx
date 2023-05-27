@@ -1,31 +1,34 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { lazy } from 'react';
 
 import SharedLayout from './SharedLayout/SharedLayout';
-import Home from '../pages/Home';
-import Movies from '../pages/Movies';
-import SearchForm from './SearchForm/SearchForm';
-import MovieDetails from 'pages/MovieDetails';
-import Cast from './Cast/Cast';
-import Reviews from './Reviews/Reviews';
-import NotFound from 'pages/NotFound';
+
+const Home = lazy(() => import('../pages/Home'));
+const MovieDetails = lazy(() => import('pages/MovieDetails'));
+const Movies = lazy(() => import('../pages/Movies'));
+const SearchForm = lazy(() => import('./SearchForm/SearchForm'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
+const NotFound = lazy(() => import('pages/NotFound'));
+
+// import MovieDetails from 'pages/MovieDetails';
 
 export const App = () => {
   return (
     <BrowserRouter basename="/goit-react-hw-05-movies">
-      <Routes>
-        <Route path="" element={<SharedLayout />}>
-          <Route index element={<Home />} />
-          <Route path="movies" element={<Movies />}>
-            <Route index element={<SearchForm />}></Route>
-            <Route path=":movieId" element={<MovieDetails />}>
-              <Route path="cast" element={<Cast />}></Route>
-              <Route path="reviews" element={<Reviews />}></Route>
+        <Routes>
+          <Route path="" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path="movies" element={<Movies />}>
+              <Route index element={<SearchForm />}></Route>
+              <Route path=":movieId" element={<MovieDetails />}>
+                <Route path="cast" element={<Cast />}></Route>
+                <Route path="reviews" element={<Reviews />}></Route>
+              </Route>
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Route>
-
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+        </Routes>
     </BrowserRouter>
   );
 };
