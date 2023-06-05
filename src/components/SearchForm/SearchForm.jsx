@@ -7,7 +7,9 @@ import { getMovieSearch } from 'services/moviesAPI';
 import MoviesList from 'components/MoviesList/MoviesList';
 import Loader from 'components/Loader/Loader';
 
-const SearchForm = ({ onSubmit }) => {
+// const SearchForm = ({ onSubmit }) => {  ===== >> БУЛО
+
+const SearchForm = () => {
   const [query, setQuery] = useState('');
   const [movie, setMovie] = useState('');
   const [searchMovies, setSearchMovies] = useState([]);
@@ -26,7 +28,7 @@ const SearchForm = ({ onSubmit }) => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const form = evt.currentTarget
+    const form = evt.currentTarget;
 
     if (!query.trim()) {
       return Notify.warning('Enter correct title.');
@@ -53,7 +55,7 @@ const SearchForm = ({ onSubmit }) => {
     getMovieSearch(movie)
       .then(resp => {
         const { results } = resp;
-        if(results < 1){
+        if (results < 1) {
           return Notify.warning('Enter correct title.');
         }
         setSearchMovies([...results]);
@@ -72,7 +74,7 @@ const SearchForm = ({ onSubmit }) => {
         <Form onSubmit={handleSubmit}>
           <SearchTerm
             type="text"
-            name='inputQuery'
+            name="inputQuery"
             onChange={handleChange}
             autocomplete="off"
             // autofocus

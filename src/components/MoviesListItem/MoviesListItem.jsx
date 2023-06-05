@@ -1,7 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
-
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+import { Link, useLocation } from 'react-router-dom';
 
 const Item = styled.li`
   font-size: 12px;
@@ -22,8 +22,8 @@ const MoviesListItem = movie => {
   );
 };
 
-// MoviesListItem.propTypes = {
-//   movie: PropTypes.objectOf.isRequired,
-// };
+MoviesListItem.propTypes = {
+  movie: PropTypes.object,
+};
 
 export default MoviesListItem;

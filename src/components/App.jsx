@@ -11,24 +11,22 @@ const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
 const NotFound = lazy(() => import('pages/NotFound'));
 
-// import MovieDetails from 'pages/MovieDetails';
-
 export const App = () => {
   return (
     <BrowserRouter basename="/goit-react-hw-05-movies">
-        <Routes>
-          <Route path="" element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            <Route path="movies" element={<Movies />}>
-              <Route index element={<SearchForm />}></Route>
-              <Route path=":movieId" element={<MovieDetails />}>
-                <Route path="cast" element={<Cast />}></Route>
-                <Route path="reviews" element={<Reviews />}></Route>
-              </Route>
+      <Routes>
+        <Route path="" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />}>
+            <Route index element={<SearchForm />}></Route>
+            <Route path=":movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />}></Route>
+              <Route path="reviews" element={<Reviews />}></Route>
             </Route>
-            <Route path="*" element={<NotFound />} />
           </Route>
-        </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
